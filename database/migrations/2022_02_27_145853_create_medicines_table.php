@@ -19,12 +19,11 @@ class CreateMedicinesTable extends Migration
             $table->string('form');
             $table->string('restriction_formula')->nullable();
             $table->double('price',12,2);
-            $table->string('image');
             $table->text('description')->nullable();
             $table->unsignedBigInteger('category_id');
-            $table->boolean('faskes_tk1')->default(0);
-            $table->boolean('faskes_tk2')->default(0);
-            $table->boolean('faskes_tk3')->default(0);
+            $table->boolean('faskes1')->default(0);
+            $table->boolean('faskes2')->default(0);
+            $table->boolean('faskes3')->default(0);
  
             
             $table->timestamps();
