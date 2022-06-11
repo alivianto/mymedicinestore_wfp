@@ -47,6 +47,22 @@
             </div>
         </div>
     </div>
+    <div class="container mt-5">
+      <div class="jumbotron jumbotron-fluid">
+          <div class="container pl-5 pr-5">
+            <h1 class="display-4">List Data Medicines (DB)</h1>
+            <a href="/obat" class="mt-2">Go to List Data Medicines</a>
+          </div>
+      </div>
+  </div>
+  <div class="container mt-5">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container pl-5 pr-5">
+          <h1 class="display-4">List Data Medicines by Category (DB)</h1>
+          <a href="/kategori_obat" class="mt-2">Go to List Data Medicines by Category</a>
+        </div>
+    </div>
+  </div>
     {{-- end Content --}}
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

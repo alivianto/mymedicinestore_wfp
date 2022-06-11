@@ -24,4 +24,28 @@ class RedirectIfAuthenticated
 
         return $next($request);
     }
+
+    // public function handle($request, Closure $next, $guard = null)
+    // {
+    //     if(Auth::guard($guard)->check()) {
+    //         $role = Auth::user()->roles;
+    //         switch($role) {
+    //             case 'owner':
+    //                 return '/';
+    //                 break;
+    //             case 'pegawai':
+    //                 return '/obat';
+    //                 break;
+    //             case 'member':
+    //                 return 'checkout';
+    //                 break;
+                
+    //             default:
+    //                 return '/home';
+    //                 break;
+    //         }
+
+    //         return $next($request);
+    //     }
+    // }
 }

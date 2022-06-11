@@ -25,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('delete.permission','App\Policies');
+        Gate::define('checknumber','App\Policies\MemberPolicy@checkmember');
     }
 }

@@ -18,6 +18,7 @@ class CategoryController extends Controller
         // Untuk Query dengan RAW
         $listDataM = DB::select(DB::raw("select * from medicines"));
         $listDataC = DB::select(DB::raw("select * from categories"));
+        
         return view('category.index', compact('listDataM','listDataC'));
     }
 
@@ -28,7 +29,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -39,7 +40,11 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Category();
+        $data->name = $request->get('name');
+        $data->description = $request->get('description');
+        $data->save();
+        return redirect()->route('kategori_obat.index')->with('status','Category is added');
     }
 
     /**
@@ -86,4 +91,32 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function showlist($id_category)
+    {
+        $data = Category::find($id_category);
+        $namecategory = isset($data->name) ? $data->name : '';
+
+        $result = isset($data->medicines) ? $data->medicines : [];
+        //dd($result);
+        if($result){
+            $getTotalData = $result->count();
+        } else {
+            $getTotalData = 0;
+        }
+        return view('report.list_medicines_by_category', compact('id_category','namecategory','result','getTotalData'));
+    }
+
+    public function showListCateogory()
+    {
+        // 1.tampilkan seluruh data katergori obat
+        $data = DB::select(DB::raw("select * from categories"));
+
+        $data = DB::table('categories')->get();
+        
+        $data = Category::get();
+
+        return view('report.list_category', compact('data'));
+    }
+    
 }
